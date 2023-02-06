@@ -73,10 +73,10 @@ public final class Constants {
   }
 
   public static class MKCANCODER {
-    public static final double topLeftOffset = -174.375 + 90; // -173.3203125+90
-    public static final double topRightOffset = 153.984375 + 90;
-    public static final double bottomLeftOffset = -43.9453125 + 90;
-    public static final double bottomRightOffset = -173.3203125 + 90; // -174.375+90
+    public static final double topLeftOffset =  -43.9453125 + 0; // -173.3203125+90
+    public static final double topRightOffset = -174.375 +0;
+    public static final double bottomLeftOffset = -173.3203125 + 0;//-43.9453125
+    public static final double bottomRightOffset =  153.984375 + 0; // -174.375+90  153.984375
 
     public static final double[] offset = {
       MKCANCODER.topLeftOffset,
@@ -105,7 +105,7 @@ public final class Constants {
   }
 
   public static class NAVX {
-    public static final double offsetYaw = 90;
+    public static final double offsetYaw = 0;
     public static final double offsetPitch = 0;
   }
 
@@ -177,18 +177,19 @@ public final class Constants {
 
   public static class CANID {
     // drive motors
-    public static final int topDriveLeftCANID = 3; // 5
-    public static final int topDriveRightCANID = 7;
-    public static final int bottomDriveLeftCANID = 9;
-    public static final int bottomDriveRightCANID = 5; // 3
+    public static final int topDriveLeftCANID = 9; // 5
+    public static final int topDriveRightCANID = 3;
+    public static final int bottomDriveLeftCANID = 5;
+    public static final int bottomDriveRightCANID = 7; // 3
 
     // turn motors
-    public static final int topTurnLeftCANID = 4; // 6
-    public static final int topTurnRightCANID = 8;
-    public static final int bottomTurnLeftCANID = 1;
-    public static final int bottomTurnRightCANID = 6; // 4
+    public static final int topTurnLeftCANID = 1; // 6
+    public static final int topTurnRightCANID = 4;
+    public static final int bottomTurnLeftCANID = 6;
+    public static final int bottomTurnRightCANID = 8; // 4
 
     // cancoder
+<<<<<<< Updated upstream
     public static final int topTurnLeftCANCoderCANID = 16; // 18
     public static final int topTurnRightCANCoderCANID = 17;
     public static final int bottomTurnLeftCANCoderCANID = 15;
@@ -196,6 +197,18 @@ public final class Constants {
     public static final int intakeCANID = 0;
     public static final int CLAWCANID = 1;
    // public static final int rollerCANID = 21;
+=======
+    public static final int topTurnLeftCANCoderCANID = 17; // 18
+    public static final int topTurnRightCANCoderCANID = 16;
+    public static final int bottomTurnLeftCANCoderCANID = 18;
+    public static final int bottomTurnRightCANCoderCANID = 15; // 16
+    // 
+    public static final int intakePORT = 8;
+    public static final int CLAWPORT = 15;
+    public static final int rollerCANID = 21;
+    public static final int leftarmCANID = 24;
+    public static final int rightarmCANID = 25;
+>>>>>>> Stashed changes
 
     // revh ph
     public static final int revphCANID = 22; // MUST MAKE SURE IT IS ON RIO NOT CANIVORE
