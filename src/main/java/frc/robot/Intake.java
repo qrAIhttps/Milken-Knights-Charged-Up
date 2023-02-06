@@ -20,8 +20,17 @@ public class Intake {
   private Intake() {
     roller =
         mMotor.motor(
+<<<<<<< Updated upstream
             CANID.rollerCANID, MKINTAKE.rollerNeutralMode, 0, MKINTAKE.pidf, MKINTAKE.inverted);
     intake = new Solenoid(PneumaticsModuleType.REVPH, CANID.intakeCANID);
+=======
+            CANID.leftarmCANID, MKINTAKE.rollerNeutralMode, 0, MKINTAKE.pidf, MKINTAKE.inverted);
+            mMotor.motor(
+              CANID.rightarmCANID, MKINTAKE.rollerNeutralMode, 0, MKINTAKE.pidf, MKINTAKE.inverted2);
+            
+
+              intake = new Solenoid(CANID.revphCANID, PneumaticsModuleType.REVPH, CANID.intakePORT);
+>>>>>>> Stashed changes
   }
 
   public static Intake getInstance() {

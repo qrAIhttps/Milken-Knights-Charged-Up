@@ -170,12 +170,24 @@ public class SupaStruct {
     if (Math.abs(xbox.getRawAxis(DriveInput.str)) < 0.1) {
       str = 0;
     }
+<<<<<<< Updated upstream
 /* 
     if (rbbutton) {
       intake.rollerSet(-.3);
 
     } else if (lbbutton) {
       intake.rollerSet(.3);
+=======
+  
+    // --------------------------------------------------------------------//
+    // INTAKE
+    // --------------------------------------------------------------------//
+            if (rbbutton) {
+              intake.rollerSet(-1);
+
+            } else if (lbbutton) {
+              intake.rollerSet(1);
+>>>>>>> Stashed changes
 
     } else {
       intake.rollerSet(0);

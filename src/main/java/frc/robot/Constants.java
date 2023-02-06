@@ -212,6 +212,7 @@ public final class Constants {
     public static final double[] pidf = {kP, kI, kD, kF};
 
     public static final boolean inverted = false;
+    public static final boolean inverted2 = true;
 
     public static final int scurve = 0;
 
