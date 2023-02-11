@@ -36,10 +36,15 @@ public final class Constants {
     public static final double maxNativeVelocity = 21600;
     public static final double maxNativeAcceleration = maxNativeVelocity / 8;
 
-    public static final double kP = 0.21;
-    public static final double kI = 0;
-    public static final double kD = 0 * kP;
+    public static final double kP = 0.12; //0.21
+    public static final double kI = 0.03;
+    public static final double kD = 2.5 ;
     public static final double kF = 0;
+
+    public static final double kPTOPDRIVERIGHT = kP + 0.69;
+    public static final double kITOPDRIVERIGHT = kI + 2;
+    public static final double kDTOPDRIVERIGHT = kD + 0 ;
+
 
     public static final double[] pidf = {kP, kI, kD, kF};
 

@@ -8,6 +8,7 @@ import com.ctre.phoenix.ErrorCode;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.sensors.CANCoder;
+
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.AUTO;
@@ -60,6 +61,9 @@ public class MkSwerveTrain {
 
     topDriveLeft = mMotor.driveMotor(CANID.topDriveLeftCANID);
     topDriveRight = mMotor.driveMotor(CANID.topDriveRightCANID);
+    topDriveRight.config_kP(0, MKDRIVE.kPTOPDRIVERIGHT);
+    topDriveRight.config_kI(0, MKDRIVE.kITOPDRIVERIGHT);
+    topDriveRight.config_kD(0, MKDRIVE.kDTOPDRIVERIGHT);
     bottomDriveLeft = mMotor.driveMotor(CANID.bottomDriveLeftCANID);
     bottomDriveRight = mMotor.driveMotor(CANID.bottomDriveRightCANID);
 
@@ -176,10 +180,21 @@ public class MkSwerveTrain {
     // AUTO.measToPredictRatio);
     // SmartDashboard.putNumber("avgDistinches", vars.avgDistInches);
 
-    // SmartDashboard.putNumber("topleftcan", tlCoder());
-    // SmartDashboard.putNumber("toprightcan", trCoder());
-    // SmartDashboard.putNumber("botleftcan", blCoder());
-    // SmartDashboard.putNumber("botrightcan", brCoder());
+     SmartDashboard.putNumber("topleftcan", tlCoder());
+     SmartDashboard.putNumber("toprightcan", trCoder());
+     SmartDashboard.putNumber("botleftcan", blCoder());
+     SmartDashboard.putNumber("botrightcan", brCoder());
+
+     SmartDashboard.putNumber("topleftnativeTURN", MathFormulas.nativeToDegrees(topTurnLeft.getSelectedSensorPosition(), MKTURN.greerRatio));
+     SmartDashboard.putNumber("toprightnativeTURN", MathFormulas.nativeToDegrees(topTurnRight.getSelectedSensorPosition(), MKTURN.greerRatio));
+     SmartDashboard.putNumber("bottomleftnativeTURN", MathFormulas.nativeToDegrees(bottomTurnLeft.getSelectedSensorPosition(), MKTURN.greerRatio));
+     SmartDashboard.putNumber("bottomrightnativeTURN", MathFormulas.nativeToDegrees(bottomTurnRight.getSelectedSensorPosition(), MKTURN.greerRatio));
+
+     SmartDashboard.putNumber("topleftnativeDRIVE", (topDriveLeft.getSelectedSensorVelocity()));
+     SmartDashboard.putNumber("toprightnativeDRIVE", (topDriveRight.getSelectedSensorVelocity()));
+     SmartDashboard.putNumber("bottomleftnativeDRIVE", (bottomDriveLeft.getSelectedSensorVelocity()));
+     SmartDashboard.putNumber("bottomrightnativeDRIVE", (bottomDriveRight.getSelectedSensorVelocity()));
+
     // SmartDashboard.putNumber("bentest", tlCoder());
     MathFormulas.nativeToDegrees(topTurnLeft.getSelectedSensorPosition(), MKTURN.greerRatio);
     // SmartDashboard.putNumber("topleftcantonative",
@@ -312,7 +327,7 @@ public class MkSwerveTrain {
     }
 
     // etherRCWFinder(FWD, -STR, RCW);
-    setModuleDrive(mode, vars.mod1[0], vars.mod2[0], vars.mod3[0], vars.mod4[0]);
+    setModuleDrive(ControlMode.Velocity, vars.mod1[0] * MKDRIVE.maxNativeVelocity, vars.mod2[0] * MKDRIVE.maxNativeVelocity, vars.mod3[0] * MKDRIVE.maxNativeVelocity, vars.mod4[0] * MKDRIVE.maxNativeVelocity);
     setModuleTurn(vars.mod1[1], vars.mod2[1], vars.mod3[1], vars.mod4[1]);
   }
 
